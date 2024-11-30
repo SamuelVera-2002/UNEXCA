@@ -14,39 +14,44 @@ permisos($permisos);
 </head>
 <body>
 <div class="header">
-        <h1>U.E José Joaquín Veroes</h1>
-        <h3>Usuario:  <?php echo $_SESSION["username"] ?></h3>
+    <div class="text-content">
+        <h1>Centro de Educación Inicial - José Joaquín Veroes</h1>
+        <h3>Usuario: <?php echo $_SESSION["username"] ?></h3>
+    </div>
+    <img src="./img/Logo JJV-Photoroom.png" alt="Logo" class="logo">
 </div>
-<nav>
-    <ul>
-        <li class="active"><a href="inicio.view.php">Inicio</a> </li>
-        <li><a href="alumnos.view.php">Registro de Estudiantes</a> </li>
-        <li><a href="listadoalumnos.view.php">Listado de Estudiantes</a> </li>
-        <li><a href="notas.view.php">Registro de Notas</a> </li>
-        <li><a href="listadonotas.view.php">Consulta de Notas</a> </li>
-        <li class="right"><a href="logout.php">Salir</a> </li>
-
-    </ul>
+<nav class="sidebar">
+        <a href="inicio.view.php" class="active"><i></i>Inicio</a>
+        <a href="alumnos.view.php"><i></i>Registro de Estudiantes</a>
+        <a href="listadoalumnos.view.php"><i></i>Listado de Estudiantes</a>
+        <a href="notas.view.php"><i></i>Registro de Notas</a>
+        <a href="listadonotas.view.php"><i></i>Consulta de Notas</a>
+        <a href="logout.php"><i></i>Salir</a>
 </nav>
 
 <div class="body">
-    <div class="panel">
-           <h1 class="text-center">Desarrollo de sistema informático para matriculación y control de notas<br>U.E José Joaquín Veroes</h1>
-        <?php
-        if(isset($_GET['err'])){
-            echo '<h3 class="error text-center">ERROR: Usuario no autorizado</h3>';
-        }
-        ?>
-        <br>
-        <hr>
-        <p class="text-center"><strong>Integrantes</strong><br><br>
-        Randal Contreras<br>Yustin Gil<br>Sabrina Muñoz<br>Samuel Vera</p>
-        <br>
+
+    <div class="container">
+        <div class="left-section">
+            <p>Centro de Educación Inicial  <br>
+            <strong>"José Joaquín Veroes"</strong><br><br>
+            Educación Integral para niños y niñas en <br>
+            edades comprendidas entre 2 y 6 años</p>
         </div>
+        <div class="right-section">
+            <div>
+                <h2>¡Le damos la Bienvenida a la Navidad!</h2>
+                <div class="video-container">
+                    <iframe src="./img/navidad.mp4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 <footer>
-
     <p>UNEXCA - Derechos reservados &copy; 2024</p>
 </footer>
 

@@ -9,8 +9,38 @@ html, body {
   margin: 0;
 }
 
-.header1 {
+.header {
+  display: flex; /* Activar flexbox */
+  justify-content: space-between; /* Texto a la izquierda, logo a la derecha */
+  align-items: center; /* Alinear elementos verticalmente */
+  background: #5ccb5f;
+  color: #000;
+  padding: 10px;
+  margin: 0;
+  margin-left: 250px; /* Ajustar por el navbar vertical */
+}
 
+.header .text-content {
+  display: flex;
+  flex-direction: column; /* Para mantener los textos en columna */
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header h3 {
+  margin: 5px 0 0 0;
+}
+
+.header .logo {
+  width: 120px; /* Ajusta el tamaño del logo según necesites */
+  height: auto; /* Mantener proporciones */
+  margin-left: 20px; /* Espacio entre el logo y el texto */
+}
+
+
+.header1 {
   align-items: center;
   text-align: center;
   background: #fcf5c7;
@@ -18,37 +48,17 @@ html, body {
   margin: 0;
   padding: 10px;
 }
-
-.header {
-  align-items: center;
-  background: #fcf5c7;
-  color: #000;
-  margin: 0;
-  padding: 10px;
-}
-
-.header h1 {
-  margin-bottom: 5px;
-}
-
-.header h3 {
-  margin-top: 0;
-}
-
 .header1 img {
   margin-right: 10px;
   margin-left: 20px;
 }
-
 .header h1, .header h3 {
   padding-left: 20px;
 }
 
 .body {
-  width: auto;
-  margin: 0 auto;
-  padding: 40px;
   min-height: 500px;
+  margin-left: 250px;
 }
 
 .body1 {
@@ -75,8 +85,8 @@ span.success {
 
 footer {
   background: #1b1e21;
-  width: 100%;
   height: 60px;
+  margin-left: 250px;
   color: #fff;
 }
 
@@ -144,17 +154,47 @@ button[type=reset] {
   color: #1b1e21;
 }
 
-nav ul {
-  background: #1b1e21;
-  margin: 0;
-  padding: 0;
-  height: 40px;
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #0020ff;
+  overflow: hidden;
+  padding-top: 20px;
 }
+
+.sidebar a {
+  padding: 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  text-align: justify;
+}
+
+.sidebar a:hover, 
+.sidebar a.active {
+  color: #0020ff; 
+  font-weight: 700;
+  background-color: #fff700;
+  border-radius: 10px;
+}
+
 
 nav ul li {
   display: inline-table;
   margin: 10px;
   color: #fff;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
 }
 
 nav ul li:hover > a {
@@ -167,15 +207,6 @@ nav ul li.active > a {
   font-weight: bold;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-}
-
-nav ul li.right {
-  float: right;
-}
 
 .text-center {
   text-align: center;
@@ -213,6 +244,60 @@ nav ul li.right {
   z-index: 1;
   animation: fadein 2s, fadeout 2s 5s;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap
+}
+.left-section, .right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.left-section {
+  background-color: #e9eff5;
+  text-align: left;
+  text-align: center;
+}
+.right-section {
+  background-image: url('../img/fondo3.jpg'); /* Ruta de tu imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: right;
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  text-align: center;
+  color: blue;
+}
+.left-section p {
+  font-size: 30px;
+  line-height: 1.6;
+}
+.left-section p strong {
+  font-weight: bold;
+  font-size: 50px;
+}
+.right-section h2 {
+  margin-bottom: 20px;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 178%;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 
 @keyframes fadein {
   from {
