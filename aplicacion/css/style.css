@@ -107,11 +107,11 @@ footer p {
 }
 
 .panel {
-  border: 1px solid #c7c7c7;
+  border: 2px solid #c7c7c7;
   border-radius: 4px;
   padding: 20px;
-  width: 80%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 40px auto;
 }
 
 .form input[type="text"], .form input[type="password"], select {

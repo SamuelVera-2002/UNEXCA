@@ -34,35 +34,32 @@ if(isset($_GET['id'])) {
 </head>
 <body>
 <div class="header">
-        <h1>U.E José Joaquín Veroes</h1>
-        <h3>Usuario:  <?php echo $_SESSION["username"] ?></h3>
+    <div class="text-content">
+        <h1>Centro de Educación Inicial - José Joaquín Veroes</h1>
+        <h3>Usuario: <?php echo $_SESSION["username"] ?></h3>
+    </div>
+    <img src="./img/Logo JJV-Photoroom.png" alt="Logo" class="logo">
 </div>
-<nav>
-    <ul>
-        <li><a href="inicio.view.php">Inicio</a> </li>
-        <li class="active"><a href="alumnos.view.php">Registro de Estudiantes</a> </li>
-        <li><a href="listadoalumnos.view.php">Listado de Estudiantes</a> </li>
-        <li><a href="notas.view.php">Registro de Notas</a> </li>
-        <li><a href="listadonotas.view.php">Consulta de Notas</a> </li>
-        <li class="right"><a href="logout.php">Salir</a> </li>
-
-    </ul>
+<nav class="sidebar">
+        <a href="inicio.view.php" ><i></i>Inicio</a>
+        <a href="alumnos.view.php"><i></i>Registro de Estudiantes</a>
+        <a href="listadoalumnos.view.php" class="active"><i></i>Listado de Estudiantes</a>
+        <a href="notas.view.php"><i></i>Registro de Notas</a>
+        <a href="listadonotas.view.php"><i></i>Consulta de Notas</a>
+        <a href="logout.php"><i></i>Salir</a>
 </nav>
 
 <div class="body">
     <div class="panel">
-            <h4>Edición de Estudiantes</h4>
+            <h1>Editar datos de un estudiante</h1>
             <form method="post" class="form" action="procesaralumno.php">
                 <!--colocamos un campo oculto que tiene el id del alumno-->
                 <input type="hidden" value="<?php echo $alumno['id']?>" name="id">
                 <label>Nombres</label><br>
                 <input type="text" required name="nombres" value="<?php echo $alumno['nombres']?>" maxlength="45">
-                <br>
+                <br><br>
                 <label>Apellidos</label><br>
                 <input type="text" required name="apellidos" value="<?php echo $alumno['apellidos']?>" maxlength="45">
-                <br><br>
-                <label>N° de Lista</label><br>
-                <input type="number" min="1" class="number" value="<?php echo $alumno['num_lista']?>" name="numlista">
                 <br><br>
                 <label>Sexo</label><br><input required type="radio" name="genero" <?php if($alumno['genero'] == 'M'){ echo "checked";} ?> value="M"> Masculino
                 <input type="radio" name="genero" required value="F" <?php if($alumno['genero'] == 'F') { echo "checked";} ?>> Femenino

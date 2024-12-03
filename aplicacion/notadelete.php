@@ -1,20 +1,19 @@
 <?php
-require 'functions.php';
-if($_SESSION['rol'] =='Administrador') {
-    if (isset($_GET['idalumno']) && isset($_GET['idmateria']) && is_numeric($_GET['idalumno'])) {
-        try {
-            $id_alumno = $_GET['idalumno'];
-            $id_materia = $_GET['idmateria'];
-            $alumno = $conn->prepare("delete from notas where id_alumno = " . $id_alumno . " and id_materia = " . $id_materia);
-            $alumno->execute();
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    } else {
-        die('Ha ocurrido un error');
+include 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_alumno = $_POST['idalumno'];
+    $id_materia = $_POST['idmateria'];
+
+    try {
+        // Eliminar las notas del estudiante
+        $conn->prepare("DELETE FROM notas WHERE id_alumno = ? AND id_materia = ?")->execute([$id_alumno, $id_materia]);
+        
+        // Eliminar al estudiante
+        $conn->prepare("DELETE FROM alumnos WHERE id = ?")->execute([$id_alumno]);
+
+        header("Location: notas.view.php?info=Eliminado");
+    } catch (Exception $e) {
+        header("Location: notas.view.php?err=NoEliminado");
     }
-}else{
-    header('location:inicio.view.php?err=1');
 }
-?>
